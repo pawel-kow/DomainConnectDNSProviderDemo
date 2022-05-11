@@ -1,3 +1,6 @@
 [submodule "PowerDNS-Admin-DomainConnect"]
 	path = PowerDNS-Admin-DomainConnect
 	url = https://github.com/pawel-kow/PowerDNS-Admin-DomainConnect
+[submodule "Templates"]
+	path = Templates
+	url = https://github.com/Domain-Connect/Templates.git

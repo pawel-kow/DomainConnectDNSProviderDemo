@@ -35,11 +35,16 @@ services:
       - ./PowerDNS-Admin-DomainConnect/powerdnsadmin/templates:/app/powerdnsadmin/templates
       - ./PowerDNS-Admin-DomainConnect/powerdnsadmin/models:/app/powerdnsadmin/models
       - ./PowerDNS-Admin-DomainConnect/powerdnsadmin/decorators.py:/app/powerdnsadmin/decorators.py
+      - ./Templates:/app/DomainConnectTemplates
     environment:
       - GUNICORN_TIMEOUT=60
       - GUNICORN_WORKERS=2
       - GUNICORN_LOGLEVEL=DEBUG
       - OFFLINE_MODE=False
+    command:
+      - "gunicorn"
+      - "powerdnsadmin:create_app()"
+      - "--reload"
 volumes:
   pdnsdb:
   pdnsadmindb:
