@@ -28,6 +28,7 @@ services:
         max-size: 50m
     volumes:
       - pdnsadmindb:/data
+      - ./Templates:/app/DomainConnectTemplates
     environment:
       - GUNICORN_TIMEOUT=60
       - GUNICORN_WORKERS=2
