@@ -22,6 +22,7 @@ services:
       dockerfile: docker/Dockerfile
     image: powerdns-admin
     container_name: powerdns_admin
+    restart: unless-stopped
     ports:
       - "9191:80"
     logging:
