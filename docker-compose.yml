@@ -4,7 +4,7 @@ services:
   pdns:
     image: powerdns/pdns-auth-46
     environment:
-      - PDNS_AUTH_API_KEY=CHANGEME
+      - PDNS_AUTH_API_KEY=CHANGEME #change the key to sth secret
     ports:
       - "53:8053"
       - "53:8053/udp"
