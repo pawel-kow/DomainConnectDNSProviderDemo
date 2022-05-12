@@ -1,21 +1,19 @@
 ﻿---                                                             
-version: '3.4'
+version: '2'
 services:
   pdns:
     image: powerdns/pdns-auth-46
     environment:
-      - PDNS_AUTH_API_KEY
+      - PDNS_AUTH_API_KEY=CHANGEME
     ports:
-      - "1053:53"
-      - "1053:53/udp"
-      - "8281:8081"
+      - "53:8053"
+      - "53:8053/udp"
+#      - "8281:8081" // uncomment to expose powerdns API. 8081 is the internal port for admin
     volumes:
-      - type: bind
-        source: ./pdns-custom.conf
-        target: /etc/powerdns/pdns.d/pdns-custom.conf
-      - type: volume
-        source: pdnsdb
-        target: /var/lib/powerdns
+      - ./pdns-custom.conf:/etc/powerdns/pdns.d/pdns-custom.conf
+      - pdnsdb:/var/lib/powerdns
+    cap_add:
+      - NET_BIND_SERVICE
   admin:
     build: 
       context: PowerDNS-Admin-DomainConnect
