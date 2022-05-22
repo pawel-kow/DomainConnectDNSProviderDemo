@@ -1,6 +1,11 @@
 ﻿---                                                             
 version: '3.4'
 services:
+  ngrok:
+    image: ngrok/ngrok
+    environment:
+      - NGROK_AUTHTOKEN=29W4wgLaH80oNanJu8DXeynPiBf_7Y8RZZcapJKrG8nRpqWuQ
+    command: http admin:80 --region eu --scheme https
   pdns:
     image: powerdns/pdns-auth-46
     environment:
