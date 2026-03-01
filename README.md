@@ -1,9 +1,9 @@
 ﻿# Check out the repository with submodules
 git clone --recurse-submodules https://github.com/pawel-kow/DomainConnectDNSProviderDemo.git
 # Starting
-docker-compose up -d
+docker compose up -d
 # Starting for development
-docker-compose up -f docker-compose-dev.yml -d
+docker compose f docker-compose-dev.yml up -d
 
 # First run
 Login over http://localhost:9191, register as a new user (will become admin automatically)
